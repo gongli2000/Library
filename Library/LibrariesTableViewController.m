@@ -111,9 +111,9 @@
     // Initialize Books View Controller
     ShelvesTableViewController *booksViewController = [[ShelvesTableViewController alloc] init];
     
-    // Fetch and Set Author
-    NSDictionary *author = [self.libraries objectAtIndex:[indexPath row]];
-    [booksViewController setCurrentShelf:[author objectForKey:@"Library"]];
+    // Fetch and Set library
+    NSDictionary *library = [self.libraries objectAtIndex:[indexPath row]];
+    [booksViewController setCurrentShelf:[library objectForKey:@"Library"]];
     
     // Push View Controller onto Navigation Stack
     [self.navigationController pushViewController:booksViewController animated:YES];
