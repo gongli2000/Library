@@ -8,7 +8,6 @@
 
 #import "ShelvesTableViewController.h"
 
-#import "BooksTableViewController.h"
 
 @interface ShelvesTableViewController ()
 
@@ -127,16 +126,16 @@
 #pragma mark -
 #pragma mark Table View Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Initialize Book Cover View Controller
-    BooksTableViewController *bookCoverViewController = [[BooksTableViewController alloc] initWithNibName:@"MTBookCoverViewController" bundle:[NSBundle mainBundle]];
-    
-    // Fetch and Set Book Cover
-    NSDictionary *book = [self.books objectAtIndex:[indexPath row]];
-    UIImage *bookCover = [UIImage imageNamed:[book objectForKey:@"Cover"]];
-    [bookCoverViewController setBookCover:bookCover];
-    
-    // Push View Controller onto Navigation Stack
-    [self.navigationController pushViewController:bookCoverViewController animated:YES];
+//    // Initialize Book Cover View Controller
+//    BooksTableViewController *bookCoverViewController = [[BooksTableViewController alloc] initWithNibName:@"MTBookCoverViewController" bundle:[NSBundle mainBundle]];
+//    
+//    // Fetch and Set Book Cover
+//    NSDictionary *book = [self.books objectAtIndex:[indexPath row]];
+//    UIImage *bookCover = [UIImage imageNamed:[book objectForKey:@"Cover"]];
+//    [bookCoverViewController setBookCover:bookCover];
+//    
+//    // Push View Controller onto Navigation Stack
+//    [self.navigationController pushViewController:bookCoverViewController animated:YES];
 }
 
 @end

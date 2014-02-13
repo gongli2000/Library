@@ -1,5 +1,5 @@
 //
-//  MTBookCoverViewController.h
+//  MTBooksViewController.h
 //  Library
 //
 //  Created by Bart Jacobs on 19/12/12.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BooksTableViewController : UIViewController
+@interface ShelvesTableViewController : UITableViewController
 
-@property UIImage *bookCover;
-@property IBOutlet UIImageView *bookCoverView;
+@property (nonatomic) NSString *shelves;
 
 @end

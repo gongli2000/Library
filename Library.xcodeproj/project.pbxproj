@@ -46,8 +46,6 @@
 		CC6FCB2B1681AAD200EA4393 /* two-towers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC6FCB0F1681AAD200EA4393 /* two-towers.jpg */; };
 		CC6FCB2E1681AAE400EA4393 /* LibrariesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FCB2D1681AAE400EA4393 /* LibrariesTableViewController.m */; };
 		CC6FCB311681BF6700EA4393 /* ShelvesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FCB301681BF6700EA4393 /* ShelvesTableViewController.m */; };
-		CC6FCB351681C67400EA4393 /* BooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FCB331681C67400EA4393 /* BooksTableViewController.m */; };
-		CC6FCB361681C67400EA4393 /* BooksTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC6FCB341681C67400EA4393 /* BooksTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,9 +94,6 @@
 		CC6FCB2D1681AAE400EA4393 /* LibrariesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibrariesTableViewController.m; sourceTree = "<group>"; };
 		CC6FCB2F1681BF6700EA4393 /* ShelvesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShelvesTableViewController.h; sourceTree = "<group>"; };
 		CC6FCB301681BF6700EA4393 /* ShelvesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShelvesTableViewController.m; sourceTree = "<group>"; };
-		CC6FCB321681C67400EA4393 /* BooksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksTableViewController.h; sourceTree = "<group>"; };
-		CC6FCB331681C67400EA4393 /* BooksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksTableViewController.m; sourceTree = "<group>"; };
-		CC6FCB341681C67400EA4393 /* BooksTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BooksTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,9 +147,6 @@
 				CC6FCB2D1681AAE400EA4393 /* LibrariesTableViewController.m */,
 				CC6FCB2F1681BF6700EA4393 /* ShelvesTableViewController.h */,
 				CC6FCB301681BF6700EA4393 /* ShelvesTableViewController.m */,
-				CC6FCB321681C67400EA4393 /* BooksTableViewController.h */,
-				CC6FCB331681C67400EA4393 /* BooksTableViewController.m */,
-				CC6FCB341681C67400EA4393 /* BooksTableViewController.xib */,
 				CC6FCADC1681AACA00EA4393 /* Supporting Files */,
 			);
 			path = Library;
@@ -301,7 +293,6 @@
 				CC6FCB291681AAD200EA4393 /* stone.jpg in Resources */,
 				CC6FCB2A1681AAD200EA4393 /* the-hobbit.jpg in Resources */,
 				CC6FCB2B1681AAD200EA4393 /* two-towers.jpg in Resources */,
-				CC6FCB361681C67400EA4393 /* BooksTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +307,6 @@
 				CC6FCAE61681AACA00EA4393 /* AppDelegate.m in Sources */,
 				CC6FCB2E1681AAE400EA4393 /* LibrariesTableViewController.m in Sources */,
 				CC6FCB311681BF6700EA4393 /* ShelvesTableViewController.m in Sources */,
-				CC6FCB351681C67400EA4393 /* BooksTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
