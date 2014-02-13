@@ -1,4 +1,10 @@
-
+//
+//  MTBooksViewController.m
+//  Library
+//
+//  Created by Bart Jacobs on 19/12/12.
+//  Copyright (c) 2012 Mobile Tuts. All rights reserved.
+//
 
 #import "ShelvesTableViewController.h"
 
@@ -36,9 +42,9 @@
 
 #pragma mark -
 #pragma mark Getters and Setters
-- (void)setCurrentLibrary:(NSString *)library {
-    if (_currentShelf != library) {
-        _currentShelf = library;
+- (void)setCurrentShelf:(NSString *)shelf {
+    if (_currentShelf != shelf) {
+        _currentShelf = shelf;
         
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
         NSArray *authors = [NSArray arrayWithContentsOfFile:filePath];

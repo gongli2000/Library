@@ -108,15 +108,15 @@
 #pragma mark -
 #pragma mark Table View Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    // Initialize Books View Controller
-//    ShelvesTableViewController *shelvesViewController = [[ShelvesTableViewController alloc] init];
-//    
-//    // Fetch and Set Author
-//    NSDictionary *library = [self.libraries objectAtIndex:[indexPath row]];
-//    [shelvesViewController setCurrentLibrary:[library objectForKey:@"Library"]];
-//    
-//    // Push View Controller onto Navigation Stack
-//    [self.navigationController pushViewController:shelvesViewController animated:YES];
+    // Initialize Books View Controller
+    ShelvesTableViewController *booksViewController = [[ShelvesTableViewController alloc] init];
+    
+    // Fetch and Set Author
+    NSDictionary *author = [self.libraries objectAtIndex:[indexPath row]];
+    [booksViewController setCurrentShelf:[author objectForKey:@"Library"]];
+    
+    // Push View Controller onto Navigation Stack
+    [self.navigationController pushViewController:booksViewController animated:YES];
 }
 
 @end
