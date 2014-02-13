@@ -10,6 +10,6 @@
 
 @interface ShelvesTableViewController : UITableViewController
 
-@property (nonatomic) NSString *currentShelf;
+@property (nonatomic) NSString *currentLibrary;
 
 @end

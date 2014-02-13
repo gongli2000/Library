@@ -42,19 +42,19 @@
 
 #pragma mark -
 #pragma mark Getters and Setters
-- (void)setCurrentShelf:(NSString *)shelf {
-    if (_currentShelf != shelf) {
-        _currentShelf = shelf;
+- (void)setCurrentLibrary:(NSString *)library {
+    if (_currentLibrary != library) {
+        _currentLibrary = library;
         
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
-        NSArray *authors = [NSArray arrayWithContentsOfFile:filePath];
+        NSArray *libraries = [NSArray arrayWithContentsOfFile:filePath];
         
-        for (int i = 0; i < [authors count]; i++) {
-            NSDictionary *authorDictionary = [authors objectAtIndex:i];
-            NSString *tempAuthor = [authorDictionary objectForKey:@"Library"];
+        for (int i = 0; i < [libraries count]; i++) {
+            NSDictionary *libraryDictionary = [libraries objectAtIndex:i];
+            NSString *tempLibrary = [libraryDictionary objectForKey:@"Library"];
             
-            if ([tempAuthor isEqualToString:_currentShelf]) {
-                self.shelves = [authorDictionary objectForKey:@"Shelves"];
+            if ([tempLibrary isEqualToString:_currentLibrary]) {
+                self.shelves = [libraryDictionary objectForKey:@"Shelves"];
             }
         }
     }
@@ -78,10 +78,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Fetch Books
-    NSDictionary *shelf = [self.shelves objectAtIndex:[indexPath row]];
+    //NSDictionary *shelf = [self.shelves objectAtIndex:[indexPath row]];
     
     // Configure Cell
-    [cell.textLabel setText:[shelf objectForKey:@"Title"]];
+    [cell.textLabel setText:[NSString stringWithFormat:@"Shelf %i", [indexPath row]]];
     
     return cell;
 }
@@ -143,7 +143,7 @@
     
     // Fetch and Set books
     NSDictionary *books = [self.shelves objectAtIndex:[indexPath row]];
-    [booksViewController setCurrentShelf:[books objectForKey:@"Library"]];
+    [booksViewController setCurrentLibrary:[books objectForKey:@"Library"]];
     
     // Push View Controller onto Navigation Stack
     [self.navigationController pushViewController:booksViewController animated:YES];
