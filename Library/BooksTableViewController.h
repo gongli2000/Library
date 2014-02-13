@@ -2,6 +2,7 @@
 
 @interface BooksTableViewController : UITableViewController
 
-@property (nonatomic) NSString *currentShelf;
+@property (nonatomic)  NSArray *currentBooks;
+- (void)setCurrentShelf:(NSDictionary *)booksDict ;
 
 @end

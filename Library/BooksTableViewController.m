@@ -42,22 +42,8 @@
 
 #pragma mark -
 #pragma mark Getters and Setters
-- (void)setCurrentShelf:(NSString *)shelf {
-    if (_currentShelf != shelf) {
-        _currentShelf = shelf;
-        
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
-        NSArray *authors = [NSArray arrayWithContentsOfFile:filePath];
-        
-        for (int i = 0; i < [authors count]; i++) {
-            NSDictionary *authorDictionary = [authors objectAtIndex:i];
-            NSString *tempAuthor = [authorDictionary objectForKey:@"Library"];
-            
-            if ([tempAuthor isEqualToString:_currentShelf]) {
-                self.shelves = [authorDictionary objectForKey:@"Shelves"];
-            }
-        }
-    }
+- (void)setCurrentShelf:(NSDictionary *)booksDict {
+    _currentBooks = [booksDict allValues];
 }
 
 #pragma mark -
@@ -67,7 +53,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.shelves count];
+    return [_currentBooks count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -77,11 +63,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Fetch Books
-    NSDictionary *shelf = [self.shelves objectAtIndex:[indexPath row]];
-    
+   
     // Configure Cell
-    [cell.textLabel setText:[shelf objectForKey:@"Title"]];
+    [cell.textLabel setText: _currentBooks[[indexPath row]]];
     
     return cell;
 }

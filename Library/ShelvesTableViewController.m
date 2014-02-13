@@ -7,7 +7,7 @@
 //
 
 #import "ShelvesTableViewController.h"
-
+#import "BooksTableViewController.h"
 
 @interface ShelvesTableViewController ()
 
@@ -139,11 +139,11 @@
 //    [self.navigationController pushViewController:bookCoverViewController animated:YES];
     
     // Initialize Books View Controller
-    ShelvesTableViewController *booksViewController = [[ShelvesTableViewController alloc] init];
+    BooksTableViewController *booksViewController = [[BooksTableViewController alloc] init];
     
     // Fetch and Set books
     NSDictionary *books = [self.shelves objectAtIndex:[indexPath row]];
-    [booksViewController setCurrentLibrary:[books objectForKey:@"Library"]];
+   [booksViewController setCurrentShelf:books];
     
     // Push View Controller onto Navigation Stack
     [self.navigationController pushViewController:booksViewController animated:YES];
