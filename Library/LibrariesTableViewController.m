@@ -27,13 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Set Title
     self.title = @"Libraries";
     
-    // Load Property List
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
     self.libraries = [NSArray arrayWithContentsOfFile:filePath];
-    NSLog(@"authors > %@", self.libraries);
+   
 }
 
 - (void)didReceiveMemoryWarning {

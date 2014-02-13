@@ -1,10 +1,4 @@
-//
-//  MTBooksViewController.m
-//  Library
-//
-//  Created by Bart Jacobs on 19/12/12.
-//  Copyright (c) 2012 Mobile Tuts. All rights reserved.
-//
+
 
 #import "ShelvesTableViewController.h"
 #import "BooksTableViewController.h"
@@ -85,67 +79,15 @@
     
     return cell;
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark -
 #pragma mark Table View Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    // Initialize Book Cover View Controller
-//    BooksTableViewController *bookCoverViewController = [[BooksTableViewController alloc] initWithNibName:@"MTBookCoverViewController" bundle:[NSBundle mainBundle]];
-//    
-//    // Fetch and Set Book Cover
-//    NSDictionary *book = [self.books objectAtIndex:[indexPath row]];
-//    UIImage *bookCover = [UIImage imageNamed:[book objectForKey:@"Cover"]];
-//    [bookCoverViewController setBookCover:bookCover];
-//    
-//    // Push View Controller onto Navigation Stack
-//    [self.navigationController pushViewController:bookCoverViewController animated:YES];
-    
-    // Initialize Books View Controller
     BooksTableViewController *booksViewController = [[BooksTableViewController alloc] init];
-    
-    // Fetch and Set books
     NSArray *books = [self.shelves objectAtIndex:[indexPath row]];
-   [booksViewController setCurrentShelf:books];
-    
-    // Push View Controller onto Navigation Stack
+    [booksViewController setCurrentShelf:books];
     [self.navigationController pushViewController:booksViewController animated:YES];
 }
 
