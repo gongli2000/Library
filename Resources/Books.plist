@@ -8,12 +8,12 @@
 		<key>Shelves</key>
 		<array>
 			<array>
-				<string>the-hobbit.jpg</string>
-				<string>Shelf 1</string>
+				<string>The Hobbit</string>
+				<string>The Ring</string>
 			</array>
 			<array>
-				<string>fellowship.jpg</string>
-				<string>Shelf 2</string>
+				<string>Scarlet Letter</string>
+				<string>Moby Dick</string>
 			</array>
 		</array>
 	</dict>
@@ -23,7 +23,7 @@
 		<key>Shelves</key>
 		<array>
 			<array>
-				<string>digital-fortress.jpg</string>
+				<string>Green Eggs and Ham</string>
 			</array>
 		</array>
 	</dict>
@@ -33,9 +33,9 @@
 		<key>Shelves</key>
 		<array>
 			<array>
-				<string>stone.jpg</string>
-				<string>Shelf 1</string>
-				<string>1997</string>
+				<string>Stone Diaries</string>
+				<string>Project Genius</string>
+				<string>Bourne Legacy</string>
 			</array>
 		</array>
 	</dict>
