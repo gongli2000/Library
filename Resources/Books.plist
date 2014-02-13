@@ -8,44 +8,16 @@
 		<key>Shelves</key>
 		<array>
 			<dict>
-				<key>Cover</key>
+				<key>book 1</key>
 				<string>the-hobbit.jpg</string>
-				<key>Title</key>
+				<key>book 2</key>
 				<string>Shelf 1</string>
-				<key>Year</key>
-				<string>1937</string>
 			</dict>
 			<dict>
-				<key>Cover</key>
+				<key>book 1</key>
 				<string>fellowship.jpg</string>
-				<key>Title</key>
+				<key>book 2</key>
 				<string>Shelf 2</string>
-				<key>Year</key>
-				<string>1954</string>
-			</dict>
-			<dict>
-				<key>Cover</key>
-				<string>two-towers.jpg</string>
-				<key>Title</key>
-				<string>Shelf 3</string>
-				<key>Year</key>
-				<string>1954</string>
-			</dict>
-			<dict>
-				<key>Cover</key>
-				<string>return-king.jpg</string>
-				<key>Title</key>
-				<string>Shelf 4</string>
-				<key>Year</key>
-				<string>1955</string>
-			</dict>
-			<dict>
-				<key>Cover</key>
-				<string>bilbo-song.png</string>
-				<key>Title</key>
-				<string>Shelf 5</string>
-				<key>Year</key>
-				<string>1966</string>
 			</dict>
 		</array>
 	</dict>
@@ -55,44 +27,8 @@
 		<key>Shelves</key>
 		<array>
 			<dict>
-				<key>Cover</key>
+				<key>book 1</key>
 				<string>digital-fortress.jpg</string>
-				<key>Title</key>
-				<string>Shelf 1</string>
-				<key>Year</key>
-				<string>1998</string>
-			</dict>
-			<dict>
-				<key>Cover</key>
-				<string>angels-demons.jpg</string>
-				<key>Title</key>
-				<string>Shelf 2</string>
-				<key>Year</key>
-				<string>2000</string>
-			</dict>
-			<dict>
-				<key>Cover</key>
-				<string>deception-point.jpg</string>
-				<key>Title</key>
-				<string>Shelf 3</string>
-				<key>Year</key>
-				<string>2001</string>
-			</dict>
-			<dict>
-				<key>Cover</key>
-				<string>da-vinci-code.jpg</string>
-				<key>Title</key>
-				<string>Shelf 4</string>
-				<key>Year</key>
-				<string>2003</string>
-			</dict>
-			<dict>
-				<key>Cover</key>
-				<string>lost-symbol.jpg</string>
-				<key>Title</key>
-				<string>Shelf 5</string>
-				<key>Year</key>
-				<string>2009</string>
 			</dict>
 		</array>
 	</dict>
@@ -108,45 +44,6 @@
 				<string>Shelf 1</string>
 				<key>Year</key>
 				<string>1997</string>
-			</dict>
-			<dict>
-				<key>Cover</key>
-				<string>chamber.jpg</string>
-				<key>Title</key>
-				<string>Shelf 2</string>
-				<key>Year</key>
-				<string>1998</string>
-			</dict>
-			<dict>
-				<key>Cover</key>
-				<string>azkaban.jpg</string>
-				<key>Title</key>
-				<string>Shelf 3</string>
-				<key>Year</key>
-				<string>1999</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>Library</key>
-		<string>Wedgewood</string>
-		<key>Shelves</key>
-		<array>
-			<dict>
-				<key>Cover</key>
-				<string>sphinx.jpeg</string>
-				<key>Title</key>
-				<string>Shelf 1</string>
-				<key>Year</key>
-				<string>1979</string>
-			</dict>
-			<dict>
-				<key>Cover</key>
-				<string>brain.jpg</string>
-				<key>Title</key>
-				<string>Shelf 2</string>
-				<key>Year</key>
-				<string>1981</string>
 			</dict>
 		</array>
 	</dict>

@@ -137,6 +137,16 @@
 //    
 //    // Push View Controller onto Navigation Stack
 //    [self.navigationController pushViewController:bookCoverViewController animated:YES];
+    
+    // Initialize Books View Controller
+    ShelvesTableViewController *booksViewController = [[ShelvesTableViewController alloc] init];
+    
+    // Fetch and Set books
+    NSDictionary *books = [self.shelves objectAtIndex:[indexPath row]];
+    [booksViewController setCurrentShelf:[books objectForKey:@"Library"]];
+    
+    // Push View Controller onto Navigation Stack
+    [self.navigationController pushViewController:booksViewController animated:YES];
 }
 
 @end
