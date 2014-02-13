@@ -7,18 +7,14 @@
 		<string>Greenwood</string>
 		<key>Shelves</key>
 		<array>
-			<dict>
-				<key>book 1</key>
+			<array>
 				<string>the-hobbit.jpg</string>
-				<key>book 2</key>
 				<string>Shelf 1</string>
-			</dict>
-			<dict>
-				<key>book 1</key>
+			</array>
+			<array>
 				<string>fellowship.jpg</string>
-				<key>book 2</key>
 				<string>Shelf 2</string>
-			</dict>
+			</array>
 		</array>
 	</dict>
 	<dict>
@@ -26,10 +22,9 @@
 		<string>University</string>
 		<key>Shelves</key>
 		<array>
-			<dict>
-				<key>book 1</key>
+			<array>
 				<string>digital-fortress.jpg</string>
-			</dict>
+			</array>
 		</array>
 	</dict>
 	<dict>
@@ -37,14 +32,11 @@
 		<string>Ballard</string>
 		<key>Shelves</key>
 		<array>
-			<dict>
-				<key>Cover</key>
+			<array>
 				<string>stone.jpg</string>
-				<key>Title</key>
 				<string>Shelf 1</string>
-				<key>Year</key>
 				<string>1997</string>
-			</dict>
+			</array>
 		</array>
 	</dict>
 </array>

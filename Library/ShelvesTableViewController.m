@@ -142,7 +142,7 @@
     BooksTableViewController *booksViewController = [[BooksTableViewController alloc] init];
     
     // Fetch and Set books
-    NSDictionary *books = [self.shelves objectAtIndex:[indexPath row]];
+    NSArray *books = [self.shelves objectAtIndex:[indexPath row]];
    [booksViewController setCurrentShelf:books];
     
     // Push View Controller onto Navigation Stack

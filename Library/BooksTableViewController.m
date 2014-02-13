@@ -11,7 +11,7 @@
 
 @interface BooksTableViewController ()
 
-@property NSArray *shelves;
+
 
 @end
 
@@ -33,7 +33,7 @@
 #pragma mark View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Shelves";
+    self.title = @"Books";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,8 +42,10 @@
 
 #pragma mark -
 #pragma mark Getters and Setters
-- (void)setCurrentShelf:(NSDictionary *)booksDict {
-    _currentBooks = [booksDict allValues];
+- (void)setCurrentShelf:(NSArray *)books {
+    if (_currentBooks != books) {
+        _currentBooks = books;
+    }
 }
 
 #pragma mark -
