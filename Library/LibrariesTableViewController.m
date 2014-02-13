@@ -32,8 +32,8 @@
     
     // Load Property List
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
-    self.authors = [NSArray arrayWithContentsOfFile:filePath];
-    NSLog(@"authors > %@", self.authors);
+    self.libraries = [NSArray arrayWithContentsOfFile:filePath];
+    NSLog(@"authors > %@", self.libraries);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,7 +47,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.authors count];
+    return [self.libraries count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -58,7 +58,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Fetch Author
-    NSDictionary *author = [self.authors objectAtIndex:[indexPath row]];
+    NSDictionary *author = [self.libraries objectAtIndex:[indexPath row]];
     
     // Configure Cell
     [cell.textLabel setText:[author objectForKey:@"Author"]];
@@ -112,8 +112,8 @@
     ShelvesTableViewController *booksViewController = [[ShelvesTableViewController alloc] init];
     
     // Fetch and Set Author
-    NSDictionary *author = [self.authors objectAtIndex:[indexPath row]];
-    [booksViewController setAuthor:[author objectForKey:@"Author"]];
+    NSDictionary *author = [self.libraries objectAtIndex:[indexPath row]];
+    [booksViewController setShelves:[author objectForKey:@"Author"]];
     
     // Push View Controller onto Navigation Stack
     [self.navigationController pushViewController:booksViewController animated:YES];

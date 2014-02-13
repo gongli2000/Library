@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MTBookCoverViewController : UIViewController
+@interface BooksTableViewController : UIViewController
 
 @property UIImage *bookCover;
 @property IBOutlet UIImageView *bookCoverView;

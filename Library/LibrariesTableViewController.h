@@ -10,6 +10,6 @@
 
 @interface LibrariesTableViewController : UITableViewController
 
-@property NSArray *authors;
+@property NSArray *libraries;
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Mobile Tuts. All rights reserved.
 //
 
-#import "MTBookCoverViewController.h"
+#import "BooksTableViewController.h"
 
-@interface MTBookCoverViewController ()
+@interface BooksTableViewController ()
 
 @end
 
-@implementation MTBookCoverViewController
+@implementation BooksTableViewController
 
 #pragma mark -
 #pragma mark Initialization

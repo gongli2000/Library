@@ -8,7 +8,7 @@
 
 #import "ShelvesTableViewController.h"
 
-#import "MTBookCoverViewController.h"
+#import "BooksTableViewController.h"
 
 @interface ShelvesTableViewController ()
 
@@ -42,9 +42,9 @@
 
 #pragma mark -
 #pragma mark Getters and Setters
-- (void)setAuthor:(NSString *)author {
-    if (_author != author) {
-        _author = author;
+- (void)setShelves:(NSString *)author {
+    if (_shelves != author) {
+        _shelves = author;
         
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
         NSArray *authors = [NSArray arrayWithContentsOfFile:filePath];
@@ -53,7 +53,7 @@
             NSDictionary *authorDictionary = [authors objectAtIndex:i];
             NSString *tempAuthor = [authorDictionary objectForKey:@"Author"];
             
-            if ([tempAuthor isEqualToString:_author]) {
+            if ([tempAuthor isEqualToString:_shelves]) {
                 self.books = [authorDictionary objectForKey:@"Books"];
             }
         }
@@ -128,7 +128,7 @@
 #pragma mark Table View Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Initialize Book Cover View Controller
-    MTBookCoverViewController *bookCoverViewController = [[MTBookCoverViewController alloc] initWithNibName:@"MTBookCoverViewController" bundle:[NSBundle mainBundle]];
+    BooksTableViewController *bookCoverViewController = [[BooksTableViewController alloc] initWithNibName:@"MTBookCoverViewController" bundle:[NSBundle mainBundle]];
     
     // Fetch and Set Book Cover
     NSDictionary *book = [self.books objectAtIndex:[indexPath row]];
