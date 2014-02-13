@@ -1,8 +1,9 @@
 
 #import <UIKit/UIKit.h>
+#import "LibModel/Library.h"
 
 @interface ShelvesTableViewController : UITableViewController
 
-@property (nonatomic) NSString *currentLibrary;
+@property (nonatomic) Library *currentLibrary;
 
 @end

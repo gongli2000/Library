@@ -87,10 +87,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Fetch Author
-    NSDictionary *author = [self.libraries objectAtIndex:[indexPath row]];
+    Library *library = [self.libraries objectAtIndex:[indexPath row]];
     
     // Configure Cell
-    [cell.textLabel setText:[author objectForKey:@"Library"]];
+    [cell.textLabel setText:library.name];
     
     return cell;
 }
@@ -141,8 +141,8 @@
     ShelvesTableViewController *shelvesViewController = [[ShelvesTableViewController alloc] init];
     
     // Fetch and Set library
-    NSDictionary *library = [self.libraries objectAtIndex:[indexPath row]];
-    [shelvesViewController setCurrentLibrary:[library objectForKey:@"Library"]];
+    Library *library = [self.libraries objectAtIndex:[indexPath row]];
+    [shelvesViewController setCurrentLibrary:library];
     
     // Push View Controller onto Navigation Stack
     [self.navigationController pushViewController:shelvesViewController animated:YES];

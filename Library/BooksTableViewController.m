@@ -36,9 +36,9 @@
 
 #pragma mark -
 #pragma mark Getters and Setters
-- (void)setCurrentShelf:(NSArray *)books {
-    if (_currentBooks != books) {
-        _currentBooks = books;
+- (void)setCurShelf:(Shelf *)shelf {
+    if (self.currentShelf != shelf) {
+        self.currentShelf = shelf;
     }
 }
 
@@ -49,7 +49,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_currentBooks count];
+    return [self.currentShelf.books count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,7 +61,7 @@
     
    
     // Configure Cell
-    [cell.textLabel setText: _currentBooks[[indexPath row]]];
+    [cell.textLabel setText: [[self.currentShelf.books allValues] objectAtIndex:[indexPath row]]];
     
     return cell;
 }

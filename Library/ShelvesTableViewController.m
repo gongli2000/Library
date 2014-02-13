@@ -2,7 +2,7 @@
 
 #import "ShelvesTableViewController.h"
 #import "BooksTableViewController.h"
-
+#import "LibModel/Library.h"
 @interface ShelvesTableViewController ()
 
 @property NSArray *shelves;
@@ -36,21 +36,22 @@
 
 #pragma mark -
 #pragma mark Getters and Setters
-- (void)setCurrentLibrary:(NSString *)library {
+- (void)setCurrentLibrary:(Library *)library {
     if (_currentLibrary != library) {
         _currentLibrary = library;
         
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
-        NSArray *libraries = [NSArray arrayWithContentsOfFile:filePath];
-        
-        for (int i = 0; i < [libraries count]; i++) {
-            NSDictionary *libraryDictionary = [libraries objectAtIndex:i];
-            NSString *tempLibrary = [libraryDictionary objectForKey:@"Library"];
-            
-            if ([tempLibrary isEqualToString:_currentLibrary]) {
-                self.shelves = [libraryDictionary objectForKey:@"Shelves"];
-            }
-        }
+//        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
+//        NSArray *libraries = [NSArray arrayWithContentsOfFile:filePath];
+//        
+//        for (int i = 0; i < [libraries count]; i++) {
+//            NSDictionary *libraryDictionary = [libraries objectAtIndex:i];
+//            NSString *tempLibrary = [libraryDictionary objectForKey:@"Library"];
+//            
+//            if ([tempLibrary isEqualToString:_currentLibrary]) {
+//                self.shelves = [libraryDictionary objectForKey:@"Shelves"];
+//            }
+//        }
+        self.shelves = library.shelves;
     }
 }
 
@@ -86,8 +87,8 @@
 #pragma mark Table View Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BooksTableViewController *booksViewController = [[BooksTableViewController alloc] init];
-    NSArray *books = [self.shelves objectAtIndex:[indexPath row]];
-    [booksViewController setCurrentShelf:books];
+    Shelf *shelf = [self.shelves objectAtIndex:[indexPath row]];
+    [booksViewController setCurShelf:shelf];
     [self.navigationController pushViewController:booksViewController animated:YES];
 }
 

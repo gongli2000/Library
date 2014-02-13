@@ -1,8 +1,8 @@
 #import <UIKit/UIKit.h>
-
+#import "LibModel/Shelf.h"
 @interface BooksTableViewController : UITableViewController
 
-@property (nonatomic,strong) NSArray *currentBooks;
-- (void)setCurrentShelf:(NSArray *)booksDict ;
+@property (nonatomic) Shelf *currentShelf;
+- (void)setCurShelf:(Shelf *)booksDict ;
 
 @end
