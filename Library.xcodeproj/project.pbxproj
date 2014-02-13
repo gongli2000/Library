@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524863FE18AC847F00DF59B8 /* BooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 524863FC18AC847F00DF59B8 /* BooksTableViewController.m */; };
 		CC6FCAD61681AACA00EA4393 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6FCAD51681AACA00EA4393 /* UIKit.framework */; };
 		CC6FCAD81681AACA00EA4393 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6FCAD71681AACA00EA4393 /* Foundation.framework */; };
 		CC6FCADA1681AACA00EA4393 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6FCAD91681AACA00EA4393 /* CoreGraphics.framework */; };
@@ -49,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		524863FC18AC847F00DF59B8 /* BooksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksTableViewController.m; sourceTree = "<group>"; };
+		524863FD18AC847F00DF59B8 /* BooksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksTableViewController.h; sourceTree = "<group>"; };
 		CC6FCAD11681AACA00EA4393 /* Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6FCAD51681AACA00EA4393 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CC6FCAD71681AACA00EA4393 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,6 +144,8 @@
 		CC6FCADB1681AACA00EA4393 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				524863FC18AC847F00DF59B8 /* BooksTableViewController.m */,
+				524863FD18AC847F00DF59B8 /* BooksTableViewController.h */,
 				CC6FCAE41681AACA00EA4393 /* AppDelegate.h */,
 				CC6FCAE51681AACA00EA4393 /* AppDelegate.m */,
 				CC6FCB2C1681AAE400EA4393 /* LibrariesTableViewController.h */,
@@ -307,6 +312,7 @@
 				CC6FCAE61681AACA00EA4393 /* AppDelegate.m in Sources */,
 				CC6FCB2E1681AAE400EA4393 /* LibrariesTableViewController.m in Sources */,
 				CC6FCB311681BF6700EA4393 /* ShelvesTableViewController.m in Sources */,
+				524863FE18AC847F00DF59B8 /* BooksTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

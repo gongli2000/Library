@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     // Set Title
-    self.title = @"Authors";
+    self.title = @"Libraries";
     
     // Load Property List
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
@@ -61,7 +61,7 @@
     NSDictionary *author = [self.libraries objectAtIndex:[indexPath row]];
     
     // Configure Cell
-    [cell.textLabel setText:[author objectForKey:@"Author"]];
+    [cell.textLabel setText:[author objectForKey:@"Library"]];
     
     return cell;
 }
@@ -113,7 +113,7 @@
     
     // Fetch and Set Author
     NSDictionary *author = [self.libraries objectAtIndex:[indexPath row]];
-    [booksViewController setShelves:[author objectForKey:@"Author"]];
+    [booksViewController setShelves:[author objectForKey:@"Library"]];
     
     // Push View Controller onto Navigation Stack
     [self.navigationController pushViewController:booksViewController animated:YES];

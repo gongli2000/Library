@@ -1,15 +1,15 @@
+////
+////  MTBooksViewController.h
+////  Library
+////
+////  Created by Bart Jacobs on 19/12/12.
+////  Copyright (c) 2012 Mobile Tuts. All rights reserved.
+////
 //
-//  MTBooksViewController.h
-//  Library
+//#import <UIKit/UIKit.h>
 //
-//  Created by Bart Jacobs on 19/12/12.
-//  Copyright (c) 2012 Mobile Tuts. All rights reserved.
+//@interface BooksTableViewController : UITableViewController
 //
-
-#import <UIKit/UIKit.h>
-
-@interface ShelvesTableViewController : UITableViewController
-
-@property (nonatomic) NSString *shelves;
-
-@end
+//@property (nonatomic) NSString *books;
+//
+//@end

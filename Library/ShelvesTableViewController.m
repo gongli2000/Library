@@ -33,6 +33,7 @@
 #pragma mark View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+     self.title = @"Shelves";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,10 +51,10 @@
         
         for (int i = 0; i < [authors count]; i++) {
             NSDictionary *authorDictionary = [authors objectAtIndex:i];
-            NSString *tempAuthor = [authorDictionary objectForKey:@"Author"];
+            NSString *tempAuthor = [authorDictionary objectForKey:@"Library"];
             
             if ([tempAuthor isEqualToString:_shelves]) {
-                self.books = [authorDictionary objectForKey:@"Books"];
+                self.books = [authorDictionary objectForKey:@"Shelves"];
             }
         }
     }

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>Author</key>
-		<string>J.R.R. Tolkien</string>
-		<key>Books</key>
+		<key>Library</key>
+		<string>Greenwood</string>
+		<key>Shelves</key>
 		<array>
 			<dict>
 				<key>Cover</key>
@@ -50,9 +50,9 @@
 		</array>
 	</dict>
 	<dict>
-		<key>Author</key>
-		<string>Dan Brown</string>
-		<key>Books</key>
+		<key>Library</key>
+		<string>University</string>
+		<key>Shelves</key>
 		<array>
 			<dict>
 				<key>Cover</key>
@@ -97,9 +97,9 @@
 		</array>
 	</dict>
 	<dict>
-		<key>Author</key>
-		<string>J.K. Rowling</string>
-		<key>Books</key>
+		<key>Library</key>
+		<string>Ballard</string>
+		<key>Shelves</key>
 		<array>
 			<dict>
 				<key>Cover</key>
@@ -168,9 +168,9 @@
 		</array>
 	</dict>
 	<dict>
-		<key>Author</key>
-		<string>Robin Cook</string>
-		<key>Books</key>
+		<key>Library</key>
+		<string>Ballard</string>
+		<key>Shelves</key>
 		<array>
 			<dict>
 				<key>Cover</key>
