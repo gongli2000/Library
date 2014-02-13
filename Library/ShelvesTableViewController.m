@@ -11,7 +11,7 @@
 
 @interface ShelvesTableViewController ()
 
-@property NSArray *books;
+@property NSArray *shelves;
 
 @end
 
@@ -42,9 +42,9 @@
 
 #pragma mark -
 #pragma mark Getters and Setters
-- (void)setShelves:(NSString *)author {
-    if (_shelves != author) {
-        _shelves = author;
+- (void)setCurrentShelf:(NSString *)shelf {
+    if (_currentShelf != shelf) {
+        _currentShelf = shelf;
         
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
         NSArray *authors = [NSArray arrayWithContentsOfFile:filePath];
@@ -53,8 +53,8 @@
             NSDictionary *authorDictionary = [authors objectAtIndex:i];
             NSString *tempAuthor = [authorDictionary objectForKey:@"Library"];
             
-            if ([tempAuthor isEqualToString:_shelves]) {
-                self.books = [authorDictionary objectForKey:@"Shelves"];
+            if ([tempAuthor isEqualToString:_currentShelf]) {
+                self.shelves = [authorDictionary objectForKey:@"Shelves"];
             }
         }
     }
@@ -67,7 +67,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.books count];
+    return [self.shelves count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,10 +78,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Fetch Books
-    NSDictionary *book = [self.books objectAtIndex:[indexPath row]];
+    NSDictionary *shelf = [self.shelves objectAtIndex:[indexPath row]];
     
     // Configure Cell
-    [cell.textLabel setText:[book objectForKey:@"Title"]];
+    [cell.textLabel setText:[shelf objectForKey:@"Title"]];
     
     return cell;
 }
