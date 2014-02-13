@@ -113,7 +113,7 @@
     
     // Fetch and Set Author
     NSDictionary *author = [self.libraries objectAtIndex:[indexPath row]];
-    [booksViewController setCurrentLibrary:[author objectForKey:@"Library"]];
+    [booksViewController setCurrentShelf:[author objectForKey:@"Library"]];
     
     // Push View Controller onto Navigation Stack
     [self.navigationController pushViewController:booksViewController animated:YES];

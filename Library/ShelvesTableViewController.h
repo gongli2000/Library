@@ -11,5 +11,5 @@
 @interface ShelvesTableViewController : UITableViewController
 
 @property (nonatomic) NSString *currentShelf;
-- (void)setCurrentLibrary:(NSString *)shelf ;
+
 @end

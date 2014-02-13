@@ -42,7 +42,7 @@
 
 #pragma mark -
 #pragma mark Getters and Setters
-- (void)setCurrentLibrary:(NSString *)shelf {
+- (void)setCurrentShelf:(NSString *)shelf {
     if (_currentShelf != shelf) {
         _currentShelf = shelf;
         
