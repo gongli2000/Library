@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MTBooksViewController : UITableViewController
+@interface ShelvesTableViewController : UITableViewController
 
 @property (nonatomic) NSString *author;
 

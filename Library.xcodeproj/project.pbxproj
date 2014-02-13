@@ -12,7 +12,7 @@
 		CC6FCADA1681AACA00EA4393 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6FCAD91681AACA00EA4393 /* CoreGraphics.framework */; };
 		CC6FCAE01681AACA00EA4393 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC6FCADE1681AACA00EA4393 /* InfoPlist.strings */; };
 		CC6FCAE21681AACA00EA4393 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FCAE11681AACA00EA4393 /* main.m */; };
-		CC6FCAE61681AACA00EA4393 /* MTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FCAE51681AACA00EA4393 /* MTAppDelegate.m */; };
+		CC6FCAE61681AACA00EA4393 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FCAE51681AACA00EA4393 /* AppDelegate.m */; };
 		CC6FCAE81681AACA00EA4393 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6FCAE71681AACA00EA4393 /* Default.png */; };
 		CC6FCAEA1681AACA00EA4393 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6FCAE91681AACA00EA4393 /* Default@2x.png */; };
 		CC6FCAEC1681AACA00EA4393 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6FCAEB1681AACA00EA4393 /* Default-568h@2x.png */; };
@@ -44,8 +44,8 @@
 		CC6FCB291681AAD200EA4393 /* stone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC6FCB0D1681AAD200EA4393 /* stone.jpg */; };
 		CC6FCB2A1681AAD200EA4393 /* the-hobbit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC6FCB0E1681AAD200EA4393 /* the-hobbit.jpg */; };
 		CC6FCB2B1681AAD200EA4393 /* two-towers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC6FCB0F1681AAD200EA4393 /* two-towers.jpg */; };
-		CC6FCB2E1681AAE400EA4393 /* MTAuthorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FCB2D1681AAE400EA4393 /* MTAuthorsViewController.m */; };
-		CC6FCB311681BF6700EA4393 /* MTBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FCB301681BF6700EA4393 /* MTBooksViewController.m */; };
+		CC6FCB2E1681AAE400EA4393 /* LibrariesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FCB2D1681AAE400EA4393 /* LibrariesTableViewController.m */; };
+		CC6FCB311681BF6700EA4393 /* ShelvesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FCB301681BF6700EA4393 /* ShelvesTableViewController.m */; };
 		CC6FCB351681C67400EA4393 /* MTBookCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6FCB331681C67400EA4393 /* MTBookCoverViewController.m */; };
 		CC6FCB361681C67400EA4393 /* MTBookCoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC6FCB341681C67400EA4393 /* MTBookCoverViewController.xib */; };
 /* End PBXBuildFile section */
@@ -59,8 +59,8 @@
 		CC6FCADF1681AACA00EA4393 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CC6FCAE11681AACA00EA4393 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CC6FCAE31681AACA00EA4393 /* Library-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Library-Prefix.pch"; sourceTree = "<group>"; };
-		CC6FCAE41681AACA00EA4393 /* MTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTAppDelegate.h; sourceTree = "<group>"; };
-		CC6FCAE51681AACA00EA4393 /* MTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTAppDelegate.m; sourceTree = "<group>"; };
+		CC6FCAE41681AACA00EA4393 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CC6FCAE51681AACA00EA4393 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CC6FCAE71681AACA00EA4393 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CC6FCAE91681AACA00EA4393 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CC6FCAEB1681AACA00EA4393 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -92,10 +92,10 @@
 		CC6FCB0D1681AAD200EA4393 /* stone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stone.jpg; sourceTree = "<group>"; };
 		CC6FCB0E1681AAD200EA4393 /* the-hobbit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "the-hobbit.jpg"; sourceTree = "<group>"; };
 		CC6FCB0F1681AAD200EA4393 /* two-towers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "two-towers.jpg"; sourceTree = "<group>"; };
-		CC6FCB2C1681AAE400EA4393 /* MTAuthorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAuthorsViewController.h; sourceTree = "<group>"; };
-		CC6FCB2D1681AAE400EA4393 /* MTAuthorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAuthorsViewController.m; sourceTree = "<group>"; };
-		CC6FCB2F1681BF6700EA4393 /* MTBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBooksViewController.h; sourceTree = "<group>"; };
-		CC6FCB301681BF6700EA4393 /* MTBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBooksViewController.m; sourceTree = "<group>"; };
+		CC6FCB2C1681AAE400EA4393 /* LibrariesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibrariesTableViewController.h; sourceTree = "<group>"; };
+		CC6FCB2D1681AAE400EA4393 /* LibrariesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibrariesTableViewController.m; sourceTree = "<group>"; };
+		CC6FCB2F1681BF6700EA4393 /* ShelvesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShelvesTableViewController.h; sourceTree = "<group>"; };
+		CC6FCB301681BF6700EA4393 /* ShelvesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShelvesTableViewController.m; sourceTree = "<group>"; };
 		CC6FCB321681C67400EA4393 /* MTBookCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBookCoverViewController.h; sourceTree = "<group>"; };
 		CC6FCB331681C67400EA4393 /* MTBookCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBookCoverViewController.m; sourceTree = "<group>"; };
 		CC6FCB341681C67400EA4393 /* MTBookCoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTBookCoverViewController.xib; sourceTree = "<group>"; };
@@ -146,12 +146,12 @@
 		CC6FCADB1681AACA00EA4393 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				CC6FCAE41681AACA00EA4393 /* MTAppDelegate.h */,
-				CC6FCAE51681AACA00EA4393 /* MTAppDelegate.m */,
-				CC6FCB2C1681AAE400EA4393 /* MTAuthorsViewController.h */,
-				CC6FCB2D1681AAE400EA4393 /* MTAuthorsViewController.m */,
-				CC6FCB2F1681BF6700EA4393 /* MTBooksViewController.h */,
-				CC6FCB301681BF6700EA4393 /* MTBooksViewController.m */,
+				CC6FCAE41681AACA00EA4393 /* AppDelegate.h */,
+				CC6FCAE51681AACA00EA4393 /* AppDelegate.m */,
+				CC6FCB2C1681AAE400EA4393 /* LibrariesTableViewController.h */,
+				CC6FCB2D1681AAE400EA4393 /* LibrariesTableViewController.m */,
+				CC6FCB2F1681BF6700EA4393 /* ShelvesTableViewController.h */,
+				CC6FCB301681BF6700EA4393 /* ShelvesTableViewController.m */,
 				CC6FCB321681C67400EA4393 /* MTBookCoverViewController.h */,
 				CC6FCB331681C67400EA4393 /* MTBookCoverViewController.m */,
 				CC6FCB341681C67400EA4393 /* MTBookCoverViewController.xib */,
@@ -313,9 +313,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC6FCAE21681AACA00EA4393 /* main.m in Sources */,
-				CC6FCAE61681AACA00EA4393 /* MTAppDelegate.m in Sources */,
-				CC6FCB2E1681AAE400EA4393 /* MTAuthorsViewController.m in Sources */,
-				CC6FCB311681BF6700EA4393 /* MTBooksViewController.m in Sources */,
+				CC6FCAE61681AACA00EA4393 /* AppDelegate.m in Sources */,
+				CC6FCB2E1681AAE400EA4393 /* LibrariesTableViewController.m in Sources */,
+				CC6FCB311681BF6700EA4393 /* ShelvesTableViewController.m in Sources */,
 				CC6FCB351681C67400EA4393 /* MTBookCoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +425,7 @@
 				CC6FCAF11681AACA00EA4393 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

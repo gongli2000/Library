@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MTAuthorsViewController : UITableViewController
+@interface LibrariesTableViewController : UITableViewController
 
 @property NSArray *authors;
 

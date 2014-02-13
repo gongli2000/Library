@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 Mobile Tuts. All rights reserved.
 //
 
-#import "MTAppDelegate.h"
+#import "AppDelegate.h"
 
-#import "MTAuthorsViewController.h"
+#import "LibrariesTableViewController.h"
 
-@implementation MTAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Initialize Authors View Controller
-    MTAuthorsViewController *authorsViewController = [[MTAuthorsViewController alloc] init];
+    LibrariesTableViewController *authorsViewController = [[LibrariesTableViewController alloc] init];
     
     // Initialize Navigation Controller
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:authorsViewController];

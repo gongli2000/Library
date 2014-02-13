@@ -1,20 +1,14 @@
-//
-//  MTAuthorsViewController.m
-//  Library
-//
-//  Created by Bart Jacobs on 19/12/12.
-//  Copyright (c) 2012 Mobile Tuts. All rights reserved.
-//
 
-#import "MTAuthorsViewController.h"
 
-#import "MTBooksViewController.h"
+#import "LibrariesTableViewController.h"
 
-@interface MTAuthorsViewController ()
+#import "ShelvesTableViewController.h"
+
+@interface LibrariesTableViewController ()
 
 @end
 
-@implementation MTAuthorsViewController
+@implementation LibrariesTableViewController
 
 #pragma mark -
 #pragma mark Initialization
@@ -115,7 +109,7 @@
 #pragma mark Table View Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Initialize Books View Controller
-    MTBooksViewController *booksViewController = [[MTBooksViewController alloc] init];
+    ShelvesTableViewController *booksViewController = [[ShelvesTableViewController alloc] init];
     
     // Fetch and Set Author
     NSDictionary *author = [self.authors objectAtIndex:[indexPath row]];

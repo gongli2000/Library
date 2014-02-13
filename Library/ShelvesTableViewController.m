@@ -6,17 +6,17 @@
 //  Copyright (c) 2012 Mobile Tuts. All rights reserved.
 //
 
-#import "MTBooksViewController.h"
+#import "ShelvesTableViewController.h"
 
 #import "MTBookCoverViewController.h"
 
-@interface MTBooksViewController ()
+@interface ShelvesTableViewController ()
 
 @property NSArray *books;
 
 @end
 
-@implementation MTBooksViewController
+@implementation ShelvesTableViewController
 
 #pragma mark -
 #pragma mark Initialization
