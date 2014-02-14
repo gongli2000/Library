@@ -1,16 +1,23 @@
+//
+//  MTAppDelegate.m
+//  Library
+//
+//  Created by Bart Jacobs on 19/12/12.
+//  Copyright (c) 2012 Mobile Tuts. All rights reserved.
+//
 
-#import "AppDelegate.h"
+#import "MTAppDelegate.h"
 
 #import "LibrariesTableViewController.h"
 
-@implementation AppDelegate
+@implementation MTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Initialize Authors View Controller
-    LibrariesTableViewController *libViewController = [[LibrariesTableViewController alloc] init];
+    LibrariesTableViewController *authorsViewController = [[LibrariesTableViewController alloc] init];
     
     // Initialize Navigation Controller
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:libViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:authorsViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     

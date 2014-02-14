@@ -39,18 +39,6 @@
 - (void)setCurrentLibrary:(Library *)library {
     if (_currentLibrary != library) {
         _currentLibrary = library;
-        
-//        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
-//        NSArray *libraries = [NSArray arrayWithContentsOfFile:filePath];
-//        
-//        for (int i = 0; i < [libraries count]; i++) {
-//            NSDictionary *libraryDictionary = [libraries objectAtIndex:i];
-//            NSString *tempLibrary = [libraryDictionary objectForKey:@"Library"];
-//            
-//            if ([tempLibrary isEqualToString:_currentLibrary]) {
-//                self.shelves = [libraryDictionary objectForKey:@"Shelves"];
-//            }
-//        }
         self.shelves = library.shelves;
     }
 }
