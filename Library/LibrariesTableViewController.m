@@ -73,10 +73,33 @@
 
 }
 
+- (void)tableView:(UITableView *)aTableView
+                  commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+                  forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        int row =indexPath.row;
+        [self.libraries removeObjectAtIndex:row];
+        [aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+
+    }
+}
+
 
 - (IBAction)DeleteButtonAction:(id)sender{
-
+    if(self.editing)
+    {
+        //[super setEditing:NO <span class="IL_AD" id="IL_AD1">animated</span>:NO];
+        [self setEditing:NO animated:NO];
     
+    }
+    else
+        {
+            [super setEditing:YES animated:YES];
+            [self setEditing:YES animated:YES];
+           
+        }
 }
 
 
