@@ -28,6 +28,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Books";
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                  initWithTitle:@"+"
+                                  style:UIBarButtonItemStyleBordered
+                                  target:self
+                                  action:@selector(AddButtonAction:)];
+    //[self.navigationItem setRightBarButtonItem:addButton];
+    
+    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc]
+                                     initWithTitle:@"-"
+                                     style:UIBarButtonItemStyleBordered
+                                     target:self
+                                     action:@selector(DeleteButtonAction:)];
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:addButton,deleteButton,nil];
+    
+}
+- (IBAction)AddButtonAction:(id)sender
+{
+    
+}
+
+
+- (IBAction)DeleteButtonAction:(id)sender{
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

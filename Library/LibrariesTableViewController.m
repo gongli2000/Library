@@ -22,6 +22,8 @@
     return self;
 }
 
+
+
 #pragma mark -
 #pragma mark View Life Cycle
 - (void)viewDidLoad {
@@ -50,7 +52,33 @@
         self.libraries[libNum]= lib;
     }
 
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                  initWithTitle:@"+"
+                                  style:UIBarButtonItemStyleBordered
+                                  target:self
+                                  action:@selector(AddButtonAction:)];
+    [self.navigationItem setRightBarButtonItem:addButton];
+    
+    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc]
+                                     initWithTitle:@"-"
+                                     style:UIBarButtonItemStyleBordered
+                                     target:self
+                                     action:@selector(DeleteButtonAction:)];
+    [self.navigationItem setLeftBarButtonItem:deleteButton];
+    
 }
+
+- (IBAction)AddButtonAction:(id)sender
+{
+
+}
+
+
+- (IBAction)DeleteButtonAction:(id)sender{
+
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

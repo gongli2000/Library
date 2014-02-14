@@ -5,4 +5,7 @@
 @property (nonatomic) Shelf *currentShelf;
 - (void)setCurShelf:(Shelf *)booksDict ;
 
+- (IBAction)AddButtonAction:(id)sender;
+- (IBAction)DeleteButtonAction:(id)sender;
+
 @end

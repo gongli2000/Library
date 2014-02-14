@@ -6,4 +6,9 @@
 
 @property (nonatomic) Library *currentLibrary;
 
+- (IBAction)AddButtonAction:(id)sender;
+
+
+- (IBAction)DeleteButtonAction:(id)sender;
+    
 @end

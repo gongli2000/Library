@@ -7,4 +7,7 @@
 
 @property NSMutableArray *libraries;
 
+- (IBAction)AddButtonAction:(id)sender;
+- (IBAction)DeleteButtonAction:(id)sender;
+
 @end
