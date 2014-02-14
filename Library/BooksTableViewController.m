@@ -48,8 +48,8 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSString *key = [[aTableView cellForRowAtIndexPath:indexPath] textLabel].text;
-        [self.currentShelf.books removeObjectForKey:key];
+        
+        [self.currentShelf.books removeObjectAtIndex:[indexPath row]];
         [aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
         
     }
@@ -68,7 +68,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     if (buttonIndex == 1) {
         Book *book = [[Book alloc] init];
         book.title = [alertView textFieldAtIndex:0].text;
-        [self.currentShelf.books setObject:book.title forKey: book.title];
+        [self.currentShelf.books addObject:book];
         int row = self.currentShelf.books.count;
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row-1 inSection:0];
         [self.tableView beginUpdates];
@@ -126,7 +126,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
    
     // Configure Cell
-    [cell.textLabel setText: [[self.currentShelf.books allValues] objectAtIndex:[indexPath row]]];
+    Book* book = [self.currentShelf.books objectAtIndex:[indexPath row]];
+    NSString* title = book.title;
+    [cell.textLabel setText: title];
     
     return cell;
 }

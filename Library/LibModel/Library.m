@@ -41,7 +41,7 @@
     NSMutableArray *books = [[NSMutableArray alloc] init];
     for(int i=0;i < self.shelves.count; i++){
         Shelf* shelf = self.shelves[i];
-        [books addObjectsFromArray: [shelf.books allValues]];
+        [books addObjectsFromArray: shelf.books];
     }
     return books;
 }

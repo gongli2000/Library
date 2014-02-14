@@ -15,7 +15,7 @@
     self = [super init];
     if (self)
     {
-        self.books = [[NSMutableDictionary alloc] init];
+        self.books = [[NSMutableArray alloc] init];
     }
     return self;
 }

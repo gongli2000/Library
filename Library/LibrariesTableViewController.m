@@ -45,7 +45,9 @@
             Shelf *shelf = [[Shelf alloc] init];
             shelf.name = [NSString stringWithFormat:@"Shelf %i", shelfNum];
             for(int bookNum=0;bookNum< [books count];bookNum++){
-                [shelf.books setObject: [books objectAtIndex: bookNum] forKey: [books objectAtIndex: bookNum]];
+                Book *book =[[Book alloc] init];
+                book.title =[books objectAtIndex: bookNum];
+                [shelf.books addObject: book];
             }
             lib.shelves[shelfNum]=shelf;
         }

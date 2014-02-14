@@ -10,7 +10,7 @@
 
 @interface Shelf : NSObject
 
-@property NSMutableDictionary *books;
+@property NSMutableArray *books;
 @property NSString* name;
 
 @end
