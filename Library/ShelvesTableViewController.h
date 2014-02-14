@@ -2,7 +2,7 @@
 #import <UIKit/UIKit.h>
 #import "LibModel/Library.h"
 
-@interface ShelvesTableViewController : UITableViewController
+@interface ShelvesTableViewController : UITableViewController<UIAlertViewDelegate>
 
 @property (nonatomic) Library *currentLibrary;
 

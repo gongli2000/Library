@@ -48,15 +48,57 @@
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:addButton,deleteButton,nil];
 
 }
-- (IBAction)AddButtonAction:(id)sender
+- (void)tableView:(UITableView *)aTableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        int row =indexPath.row;
+        [self.currentLibrary.shelves removeObjectAtIndex:row];
+        [aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+        
+    }
+}
+- (IBAction)AddButtonAction:(id)sender
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Shelf Name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    [alertView show];
+    
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        Shelf *shelf = [[Shelf alloc] init];
+        shelf.name = [alertView textFieldAtIndex:0].text;
+        [self.currentLibrary.shelves addObject:shelf];
+        NSIndexPath *indexPath = [NSIndexPath
+                                  indexPathForRow:[self.currentLibrary.shelves indexOfObject:shelf]
+                                  inSection:0];
+        [self.tableView beginUpdates];
+        [self.tableView
+         insertRowsAtIndexPaths:@[indexPath]withRowAnimation:UITableViewRowAnimationBottom];
+        [self.tableView endUpdates];
+    }
 }
 
 
 - (IBAction)DeleteButtonAction:(id)sender{
-    
-    
+    if(self.editing)
+    {
+        //[super setEditing:NO <span class="IL_AD" id="IL_AD1">animated</span>:NO];
+        [self setEditing:NO animated:NO];
+        
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [self setEditing:YES animated:YES];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,10 +132,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Fetch Books
-    //NSDictionary *shelf = [self.shelves objectAtIndex:[indexPath row]];
+    Shelf *shelf = [self.shelves objectAtIndex:[indexPath row]];
     
     // Configure Cell
-    [cell.textLabel setText:[NSString stringWithFormat:@"Shelf %i", [indexPath row]]];
+    [cell.textLabel setText:shelf.name];
     
     return cell;
 }
