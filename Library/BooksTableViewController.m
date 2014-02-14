@@ -43,15 +43,56 @@
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:addButton,deleteButton,nil];
     
 }
+- (void)tableView:(UITableView *)aTableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSString *key = [[aTableView cellForRowAtIndexPath:indexPath] textLabel].text;
+        [self.currentShelf.books removeObjectForKey:key];
+        [aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+        
+    }
+}
 - (IBAction)AddButtonAction:(id)sender
 {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Shelf Name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     
+    [alertView show];
+    
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        Book *book = [[Book alloc] init];
+        book.title = [alertView textFieldAtIndex:0].text;
+        [self.currentShelf.books setObject:book.title forKey: book.title];
+        int row = self.currentShelf.books.count;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row-1 inSection:0];
+        [self.tableView beginUpdates];
+        [self.tableView
+         insertRowsAtIndexPaths:@[indexPath]
+         withRowAnimation:UITableViewRowAnimationBottom];
+        [self.tableView endUpdates];
+    }
 }
 
 
 - (IBAction)DeleteButtonAction:(id)sender{
-    
-    
+    if(self.editing)
+    {
+        //[super setEditing:NO <span class="IL_AD" id="IL_AD1">animated</span>:NO];
+        [self setEditing:NO animated:NO];
+        
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [self setEditing:YES animated:YES];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

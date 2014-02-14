@@ -1,6 +1,8 @@
 #import <UIKit/UIKit.h>
 #import "LibModel/Shelf.h"
-@interface BooksTableViewController : UITableViewController
+#import "LibModel/Book.h"
+
+@interface BooksTableViewController : UITableViewController<UIAlertViewDelegate>
 
 @property (nonatomic) Shelf *currentShelf;
 - (void)setCurShelf:(Shelf *)booksDict ;
