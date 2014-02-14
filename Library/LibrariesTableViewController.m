@@ -68,10 +68,7 @@
     
 }
 
-- (IBAction)AddButtonAction:(id)sender
-{
 
-}
 
 - (void)tableView:(UITableView *)aTableView
                   commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
@@ -83,6 +80,29 @@
         [self.libraries removeObjectAtIndex:row];
         [aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
 
+    }
+}
+- (IBAction)AddButtonAction:(id)sender
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Library Name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    [alertView show];
+    
+
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        Library *lib = [[Library alloc] init];
+        UITextField *libNameField = [alertView textFieldAtIndex:0];
+        lib.name = libNameField.text;
+        [self.libraries addObject:lib];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.libraries indexOfObject:lib] inSection:0];
+        [self.tableView beginUpdates];
+        [self.tableView
+         insertRowsAtIndexPaths:@[indexPath]withRowAnimation:UITableViewRowAnimationBottom];
+        [self.tableView endUpdates];
     }
 }
 
