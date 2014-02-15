@@ -55,35 +55,51 @@
     }
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
-                                  initWithTitle:@"+"
+                                  initWithTitle:@"Edit"
                                   style:UIBarButtonItemStyleBordered
                                   target:self
-                                  action:@selector(AddButtonAction:)];
+                                  action:@selector(EditTable:)];
     [self.navigationItem setRightBarButtonItem:addButton];
     
-    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc]
-                                     initWithTitle:@"-"
-                                     style:UIBarButtonItemStyleBordered
-                                     target:self
-                                     action:@selector(DeleteButtonAction:)];
-    [self.navigationItem setLeftBarButtonItem:deleteButton];
+//    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc]
+//                                     initWithTitle:@"-"
+//                                     style:UIBarButtonItemStyleBordered
+//                                     target:self
+//                                     action:@selector(DeleteButtonAction:)];
+//   
+    [self.navigationItem setRightBarButtonItem:addButton];
+   // [self.navigationItem setLeftBarButtonItem:deleteButton];
     
 }
 
 
+
+//- (void)tableView:(UITableView *)aTableView
+//                  commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+//                  forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        int row =indexPath.row;
+//        [self.libraries removeObjectAtIndex:row];
+//        [aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+//
+//    }
+//}
 
 - (void)tableView:(UITableView *)aTableView
-                  commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-                  forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+         commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+         forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        int row =indexPath.row;
-        [self.libraries removeObjectAtIndex:row];
-        [aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-
+        [self.libraries removeObjectAtIndex:indexPath.row];
+        [aTableView reloadData];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        [self.libraries insertObject:@"Mac Mini" atIndex:[self.libraries count]];
+        [aTableView reloadData];
     }
 }
+
 - (IBAction)AddButtonAction:(id)sender
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Library Name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
@@ -123,6 +139,24 @@
            
         }
 }
+- (IBAction) EditTable:(id)sender{
+    if(self.editing)
+    {
+        [super setEditing:NO];
+        [self setEditing:NO animated:NO];
+        [self.navigationItem.rightBarButtonItem setTitle:@"Edit"];
+        [self.navigationItem.rightBarButtonItem setStyle:UIBarButtonItemStylePlain];
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [self setEditing:YES animated:YES];
+        [self.navigationItem.rightBarButtonItem setTitle:@"Done"];
+        [self.navigationItem.rightBarButtonItem setStyle:UIBarButtonItemStyleDone];
+    }
+    bool ed = self.editing;
+    [self.tableView reloadData];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -136,26 +170,73 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.libraries count];
+
+    int count = [self.libraries count];
+    bool editing = self.editing;
+    if(editing){
+        count++;
+    }
+    return count;
 }
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    static NSString *CellIdentifier = @"Cell Identifier";
+//    
+//    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+//    
+//    // Fetch Author
+//    Library *library = [self.libraries objectAtIndex:[indexPath row]];
+//    
+//    // Configure Cell
+//    [cell.textLabel setText:library.name];
+//    
+//    
+//    return cell;
+//}
+// The editing style for a row is the kind of button displayed to the left of the cell when in editing mode.
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // No editing style if not editing or the index path is nil.
+    if (self.editing == NO || !indexPath) {
+        return UITableViewCellEditingStyleNone;
+    }else if (self.editing && indexPath.row == ([self.libraries count])) {
+        return UITableViewCellEditingStyleInsert;
+    } else {
+        return UITableViewCellEditingStyleDelete;
+    }
+
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *CellIdentifier = @"Cell Identifier";
-    
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Fetch Author
-    Library *library = [self.libraries objectAtIndex:[indexPath row]];
+//   int count = 0;
+//   if(self.editing && indexPath.row != 0)
+//        count = 1;
+//  
     
-    // Configure Cell
-    [cell.textLabel setText:library.name];
-    
+    int row = indexPath.row;
+    bool editing = self.editing;
+    int rowcount = editing? [self.libraries count]: [self.libraries count]+1;
+    if(row < rowcount )
+    {
+        Library *library = [self.libraries objectAtIndex:[indexPath row]];
+        [cell.textLabel setText:library.name];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+       
+    }else{
+        [cell.textLabel setText:@"add new row"];
+
+    }
     return cell;
 }
-
-
 
 #pragma mark -
 #pragma mark Table View Delegate Methods
