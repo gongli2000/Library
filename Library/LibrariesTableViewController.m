@@ -95,10 +95,13 @@
         [self.libraries removeObjectAtIndex:indexPath.row];
         [aTableView reloadData];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        Library* lib = [[Library alloc] init];
-        lib.name = @"Mac Mini";
-        [self.libraries addObject:lib];
-        [aTableView reloadData];
+        
+//        Library* lib = [[Library alloc] init];
+//        lib.name = @"Mac Mini";
+//        [self.libraries addObject:lib];
+//        [aTableView reloadData];
+        
+        [self AddButtonAction:self];
     }
 }
 
@@ -108,21 +111,31 @@
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     
     [alertView show];
-    
 
 }
 
+- (IBAction)EditButtonAction:(id)sender
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Library Name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    [alertView show];
+    
+}
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        Library *lib = [[Library alloc] init];
-        UITextField *libNameField = [alertView textFieldAtIndex:0];
-        lib.name = libNameField.text;
-        [self.libraries addObject:lib];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.libraries indexOfObject:lib] inSection:0];
-        [self.tableView beginUpdates];
-        [self.tableView
-         insertRowsAtIndexPaths:@[indexPath]withRowAnimation:UITableViewRowAnimationBottom];
-        [self.tableView endUpdates];
+        if(self.editing){
+        }else{
+            Library *lib = [[Library alloc] init];
+            UITextField *libNameField = [alertView textFieldAtIndex:0];
+            lib.name = libNameField.text;
+            [self.libraries addObject:lib];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.libraries indexOfObject:lib] inSection:0];
+            [self.tableView beginUpdates];
+            [self.tableView
+             insertRowsAtIndexPaths:@[indexPath]withRowAnimation:UITableViewRowAnimationBottom];
+            [self.tableView endUpdates];
+        }
     }
 }
 
@@ -232,6 +245,13 @@
         Library *library = [self.libraries objectAtIndex:[indexPath row]];
         [cell.textLabel setText:library.name];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 21)];
+//        textField.placeholder = @"Enter Text";
+//        textField.text = @"fdf";
+//        textField.tag = indexPath.row/2;
+//        [textField setEnabled:false];
+//       // textField.delegate = self;
+//        [cell.contentView addSubview:textField];
        
     }else{
         [cell.textLabel setText:@"add new row"];
@@ -243,15 +263,16 @@
 #pragma mark -
 #pragma mark Table View Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Initialize Books View Controller
-    ShelvesTableViewController *shelvesViewController = [[ShelvesTableViewController alloc] init];
-    
     // Fetch and Set library
     Library *library = [self.libraries objectAtIndex:[indexPath row]];
-    [shelvesViewController setCurrentLibrary:library];
-    
-    // Push View Controller onto Navigation Stack
-    [self.navigationController pushViewController:shelvesViewController animated:YES];
+    if(self.editing)
+    {
+        [self EditButtonAction:self];
+    }else{
+        ShelvesTableViewController *shelvesViewController = [[ShelvesTableViewController alloc] init];
+        [shelvesViewController setCurrentLibrary:library];
+        [self.navigationController pushViewController:shelvesViewController animated:YES];
+    }
 }
 
 @end

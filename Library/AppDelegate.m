@@ -8,7 +8,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Initialize Authors View Controller
     LibrariesTableViewController *libViewController = [[LibrariesTableViewController alloc] init];
-    
+    [libViewController.tableView setAllowsSelectionDuringEditing:TRUE];
     // Initialize Navigation Controller
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:libViewController];
     
