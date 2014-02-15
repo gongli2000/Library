@@ -109,7 +109,7 @@
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Library Name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    
+    self.update=false;
     [alertView show];
 
 }
@@ -118,16 +118,25 @@
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Library Name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    
+    self.update = true;
     [alertView show];
     
 }
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        if(self.editing){
+        UITextField *libNameField = [alertView textFieldAtIndex:0];
+        if(self.update){
+            static NSString *CellIdentifier = @"Cell Identifier";
+            [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+            UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier
+                                            forIndexPath:self.currentIndexPath];
+            [cell.textLabel setText:libNameField.text];
+            Library* lib = [self.libraries objectAtIndex:self.currentIndexPath.row];
+            lib.name = libNameField.text;
+            
         }else{
             Library *lib = [[Library alloc] init];
-            UITextField *libNameField = [alertView textFieldAtIndex:0];
+            
             lib.name = libNameField.text;
             [self.libraries addObject:lib];
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.libraries indexOfObject:lib] inSection:0];
@@ -169,7 +178,7 @@
         [self.navigationItem.rightBarButtonItem setTitle:@"Done"];
         [self.navigationItem.rightBarButtonItem setStyle:UIBarButtonItemStyleDone];
     }
-    bool ed = self.editing;
+ 
     [self.tableView reloadData];
 }
 
@@ -263,13 +272,20 @@
 #pragma mark -
 #pragma mark Table View Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Fetch and Set library
-    Library *library = [self.libraries objectAtIndex:[indexPath row]];
+  
     if(self.editing)
     {
-        [self EditButtonAction:self];
+        if(indexPath.row < self.libraries.count){
+            self.currentIndexPath = indexPath;
+            [self EditButtonAction:self];
+        }else{
+            self.currentIndexPath = indexPath;
+            [self AddButtonAction:self];
+        }
     }else{
+        
         ShelvesTableViewController *shelvesViewController = [[ShelvesTableViewController alloc] init];
+         Library *library = [self.libraries objectAtIndex:[indexPath row]];
         [shelvesViewController setCurrentLibrary:library];
         [self.navigationController pushViewController:shelvesViewController animated:YES];
     }

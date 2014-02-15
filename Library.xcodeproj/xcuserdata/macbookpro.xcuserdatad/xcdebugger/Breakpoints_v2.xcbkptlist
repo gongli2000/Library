@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Library/LibrariesTableViewController.m"
-            timestampString = "414178766.658117"
+            timestampString = "414179971.173168"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-alertView:didDismissWithButtonIndex:"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
