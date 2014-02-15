@@ -95,7 +95,9 @@
         [self.libraries removeObjectAtIndex:indexPath.row];
         [aTableView reloadData];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        [self.libraries insertObject:@"Mac Mini" atIndex:[self.libraries count]];
+        Library* lib = [[Library alloc] init];
+        lib.name = @"Mac Mini";
+        [self.libraries addObject:lib];
         [aTableView reloadData];
     }
 }
