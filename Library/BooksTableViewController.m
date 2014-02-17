@@ -188,7 +188,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     {
         Book *book = [self.currentShelf.books objectAtIndex:[indexPath row]];
         [cell.textLabel setText:book.title];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
      
         
         
