@@ -235,6 +235,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }else{
         
         BooksTableViewController *booksViewController = [[BooksTableViewController alloc] init];
+         [booksViewController.tableView setAllowsSelectionDuringEditing:TRUE];
         Shelf *shelf = [self.shelves objectAtIndex:[indexPath row]];
         [booksViewController setCurShelf:shelf];
         [self.navigationController pushViewController:booksViewController animated:YES];
