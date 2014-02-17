@@ -67,7 +67,7 @@
 //                                     target:self
 //                                     action:@selector(DeleteButtonAction:)];
 //   
-    [self.navigationItem setRightBarButtonItem:addButton];
+    //[self.navigationItem setRightBarButtonItem:addButton];
    // [self.navigationItem setLeftBarButtonItem:deleteButton];
     
 }
@@ -96,12 +96,8 @@
         [aTableView reloadData];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         
-//        Library* lib = [[Library alloc] init];
-//        lib.name = @"Mac Mini";
-//        [self.libraries addObject:lib];
-//        [aTableView reloadData];
-        
         [self AddButtonAction:self];
+        [aTableView reloadData];
     }
 }
 
@@ -285,6 +281,8 @@
     }else{
         
         ShelvesTableViewController *shelvesViewController = [[ShelvesTableViewController alloc] init];
+        [shelvesViewController.tableView setAllowsSelectionDuringEditing:TRUE];
+
          Library *library = [self.libraries objectAtIndex:[indexPath row]];
         [shelvesViewController setCurrentLibrary:library];
         [self.navigationController pushViewController:shelvesViewController animated:YES];
