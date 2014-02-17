@@ -5,6 +5,8 @@
 @interface BooksTableViewController : UITableViewController<UIAlertViewDelegate>
 
 @property (nonatomic) Shelf *currentShelf;
+@property NSIndexPath *currentIndexPath;
+@property BOOL update;
 - (void)setCurShelf:(Shelf *)booksDict ;
 
 - (IBAction)AddButtonAction:(id)sender;

@@ -28,54 +28,73 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Books";
+
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
-                                  initWithTitle:@"+"
+                                  initWithTitle:@"Edit"
                                   style:UIBarButtonItemStyleBordered
                                   target:self
-                                  action:@selector(AddButtonAction:)];
-    //[self.navigationItem setRightBarButtonItem:addButton];
-    
-    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc]
-                                     initWithTitle:@"-"
-                                     style:UIBarButtonItemStyleBordered
-                                     target:self
-                                     action:@selector(DeleteButtonAction:)];
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:addButton,deleteButton,nil];
+                                  action:@selector(EditTable:)];
+    [self.navigationItem setRightBarButtonItem:addButton];
     
 }
 - (void)tableView:(UITableView *)aTableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.currentShelf.books   removeObjectAtIndex:indexPath.row];
+        [aTableView reloadData];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         
-        [self.currentShelf.books removeObjectAtIndex:[indexPath row]];
-        [aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-        
+        [self AddButtonAction:self];
+        [aTableView reloadData];
     }
 }
+
 - (IBAction)AddButtonAction:(id)sender
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Shelf Name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    
+    self.update=false;
     [alertView show];
-    
     
 }
 
+- (IBAction)EditButtonAction:(id)sender
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Shelf Name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    self.update = true;
+    [alertView show];
+    
+}
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        Book *book = [[Book alloc] init];
-        book.title = [alertView textFieldAtIndex:0].text;
-        [self.currentShelf.books addObject:book];
-        int row = self.currentShelf.books.count;
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row-1 inSection:0];
-        [self.tableView beginUpdates];
-        [self.tableView
-         insertRowsAtIndexPaths:@[indexPath]
-         withRowAnimation:UITableViewRowAnimationBottom];
-        [self.tableView endUpdates];
+        UITextField *booktitle = [alertView textFieldAtIndex:0];
+        if(self.update){
+            static NSString *CellIdentifier = @"Cell Identifier";
+            [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+            UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier
+                                                                         forIndexPath:self.currentIndexPath];
+            Book* book = [self.currentShelf.books objectAtIndex:self.currentIndexPath.row];
+            book.title = booktitle.text;
+            [self.tableView beginUpdates];
+            [cell.textLabel setText:booktitle.text];
+            [self.tableView endUpdates];
+            
+            
+        }else{
+            Book *book = [[Book alloc] init];
+            
+            book.title = booktitle.text;
+            [self.currentShelf.books addObject:book];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.currentShelf.books indexOfObject:book] inSection:0];
+            [self.tableView beginUpdates];
+            [self.tableView
+             insertRowsAtIndexPaths:@[indexPath]withRowAnimation:UITableViewRowAnimationBottom];
+            [self.tableView endUpdates];
+        }
     }
 }
 
@@ -94,7 +113,24 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
     }
 }
-
+- (IBAction) EditTable:(id)sender{
+    if(self.editing)
+    {
+        [super setEditing:NO];
+        [self setEditing:NO animated:NO];
+        [self.navigationItem.rightBarButtonItem setTitle:@"Edit"];
+        [self.navigationItem.rightBarButtonItem setStyle:UIBarButtonItemStylePlain];
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [self setEditing:YES animated:YES];
+        [self.navigationItem.rightBarButtonItem setTitle:@"Done"];
+        [self.navigationItem.rightBarButtonItem setStyle:UIBarButtonItemStyleDone];
+    }
+    
+    [self.tableView reloadData];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -114,22 +150,52 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.currentShelf.books count];
+    int count = [self.currentShelf.books count];
+    bool editing = self.editing;
+    if(editing){
+        count++;
+    }
+    return count;
+}
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // No editing style if not editing or the index path is nil.
+    if (self.editing == NO || !indexPath) {
+        return UITableViewCellEditingStyleNone;
+    }else if (self.editing && indexPath.row == ([self.currentShelf.books count])) {
+        return UITableViewCellEditingStyleInsert;
+    } else {
+        return UITableViewCellEditingStyleDelete;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   
+    
+    
     static NSString *CellIdentifier = @"Cell Identifier";
-    
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-   
-    // Configure Cell
-    Book* book = [self.currentShelf.books objectAtIndex:[indexPath row]];
-    NSString* title = book.title;
-    [cell.textLabel setText: title];
+
     
+    int row = indexPath.row;
+    bool editing = self.editing;
+    int rowcount = editing? [self.currentShelf.books count]: [self.currentShelf.books count]+1;
+    if(row < rowcount )
+    {
+        Book *book = [self.currentShelf.books objectAtIndex:[indexPath row]];
+        [cell.textLabel setText:book.title];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+     
+        
+        
+    }else{
+        [cell.textLabel setText:@"add new row"];
+        
+    }
     return cell;
 }
 /*
@@ -184,6 +250,18 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     //
     //    // Push View Controller onto Navigation Stack
     //    [self.navigationController pushViewController:bookCoverViewController animated:YES];
+    
+    
+    if(self.editing)
+    {
+        if(indexPath.row < self.currentShelf.books.count){
+            self.currentIndexPath = indexPath;
+            [self EditButtonAction:self];
+        }else{
+            self.currentIndexPath = indexPath;
+            [self AddButtonAction:self];
+        }
+    }
 }
 
 @end
