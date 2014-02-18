@@ -54,7 +54,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (IBAction)AddButtonAction:(id)sender
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Shelf Name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Book Title:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     self.update=false;
     [alertView show];
@@ -63,7 +63,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (IBAction)EditButtonAction:(id)sender
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"Shelf Name:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    Book* book = self.currentShelf.books[[self.currentIndexPath row]];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Edit Book Title" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+   // [[alertView textFieldAtIndex:0] setText:book.title];
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     self.update = true;
     [alertView show];
@@ -73,15 +76,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (buttonIndex == 1) {
         UITextField *booktitle = [alertView textFieldAtIndex:0];
         if(self.update){
-            static NSString *CellIdentifier = @"Cell Identifier";
-            [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
-            UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier
-                                                                         forIndexPath:self.currentIndexPath];
+//            static NSString *CellIdentifier = @"Cell Identifier";
+//            [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+//            UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier
+//                                                                         forIndexPath:self.currentIndexPath];
             Book* book = [self.currentShelf.books objectAtIndex:self.currentIndexPath.row];
             book.title = booktitle.text;
-            [self.tableView beginUpdates];
-            [cell.textLabel setText:booktitle.text];
-            [self.tableView endUpdates];
+            [self.tableView reloadData];
             
             
         }else{
@@ -251,15 +252,16 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     //    // Push View Controller onto Navigation Stack
     //    [self.navigationController pushViewController:bookCoverViewController animated:YES];
     
-    
+    self.currentIndexPath = indexPath;
     if(self.editing)
     {
+     if(indexPath.row == self.currentShelf.books.count){
+        [self AddButtonAction:self];
+     }
+    }else{
         if(indexPath.row < self.currentShelf.books.count){
             self.currentIndexPath = indexPath;
             [self EditButtonAction:self];
-        }else{
-            self.currentIndexPath = indexPath;
-            [self AddButtonAction:self];
         }
     }
 }
